@@ -1,4 +1,4 @@
-from zoo import ZooEnv
+from remoteenv.zoo import ZooEnv
 
 
 env = ZooEnv('prefix', 'zoohost:2181')

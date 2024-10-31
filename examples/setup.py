@@ -1,4 +1,4 @@
-from zoo import ZooEnv
+from remoteenv.zoo import ZooEnv
 
 
 def split_text(text: str) -> list[tuple[str, str]]:
