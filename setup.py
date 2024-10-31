@@ -4,7 +4,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
     long_description = fh.read()
 
 setup(
-    name='remote-env',  # Ensure this matches the package name
+    name='remoteenv',  # Ensure this matches the package name
     version='0.1.0',
     packages=find_packages(),
     install_requires=[
