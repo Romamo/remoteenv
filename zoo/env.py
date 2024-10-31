@@ -2,7 +2,7 @@ import kazoo
 from kazoo.client import KazooClient
 
 
-class ZooEnviron:
+class ZooEnv:
     def __init__(self, prefix, hosts):
         self._prefix = prefix
         self._zk = KazooClient(hosts=hosts)
@@ -55,15 +55,13 @@ class ZooEnviron:
 
     def bulk_set(self, pairs: list[tuple[str, str]], delete_others=True):
         for k, v in pairs:
-            print(f"{k}={v}")
+            # print(f"{k}={v}")
             self.set(k, v)
 
         if delete_others:
             self.bulk_delete(exclude=[k[0] for k in pairs])
 
     def read(self, *paths) -> list[tuple[str, str]]:
-        # self._zk.start()
-
         for path in [f"/{self._prefix}"] + [f"/{self._prefix}/{p}" for p in paths] if paths else []:
             try:
                 children = self._zk.get_children(path)
