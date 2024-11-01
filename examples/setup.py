@@ -1,7 +1,9 @@
+from typing import Tuple, List
+
 from remoteenv.zoo import ZooEnv
 
 
-def split_text(text: str) -> list[tuple[str, str]]:
+def split_text(text: str) -> List[Tuple[str, str]]:
     for line in text.split('\n'):
         line = line.strip()
         if not line:

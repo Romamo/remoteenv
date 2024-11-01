@@ -1,3 +1,5 @@
+from typing import List, Tuple
+
 import kazoo
 from kazoo.client import KazooClient
 
@@ -15,7 +17,7 @@ class ZooEnv:
         if self._zk.connected:
             self._zk.stop()
 
-    def dump(self) -> list[tuple[str, str]]:
+    def dump(self) -> List[Tuple[str, str]]:
         # recursively dump all nodes
         def dump_node(path):
             try:
@@ -61,7 +63,7 @@ class ZooEnv:
         if delete_others:
             self.bulk_delete(exclude=[k[0] for k in pairs])
 
-    def read(self, *paths) -> list[tuple[str, str]]:
+    def read(self, *paths) -> List[Tuple[str, str]]:
         for path in [f"/{self._prefix}"] + [f"/{self._prefix}/{p}" for p in paths] if paths else []:
             try:
                 children = self._zk.get_children(path)

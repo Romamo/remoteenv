@@ -18,7 +18,7 @@ pip install git+https://github.com/Romamo/remote-env.git
 ## Usage
 
 ```python
-from zoo import ZooEnv
+from remoteenv.zoo import ZooEnv
 
 zooenv = ZooEnv('prefix', 'zoohost:2181')
 zooenv.start()
