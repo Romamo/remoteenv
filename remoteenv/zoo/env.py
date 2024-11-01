@@ -76,4 +76,5 @@ class ZooEnv:
             for child in children:
                 data, stat = self._zk.get(f"{path}/{child}")
                 # print(f"{path}: {child}={data.decode()}")
-                yield child, data.decode()
+                if data != b'':
+                    yield child, data.decode()
