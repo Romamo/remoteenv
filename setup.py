@@ -24,5 +24,5 @@ setup(
         'Operating System :: OS Independent',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
-    python_requires='>=3.10',
+    python_requires='>=3.7',
 )
