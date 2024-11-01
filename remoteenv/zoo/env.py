@@ -9,9 +9,13 @@ class ZooEnv:
         self._prefix = prefix
         self._zk = KazooClient(hosts=hosts)
 
-    def start(self):
+    def start(self) -> bool:
         if not self._zk.connected:
-            self._zk.start()
+            try:
+                self._zk.start()
+            except kazoo.handlers.threading.KazooTimeoutError:
+                return False
+        return True
 
     def stop(self):
         if self._zk.connected:

@@ -19,6 +19,6 @@ mod/h4/DATABASE_DEFAULT_HOST=h1
 
 envset = list(split_text(s))
 env = ZooEnv('prefix', 'zoohost:2181')
-env.start()
-env.bulk_set(envset)
-env.stop()
+if env.start():
+    env.bulk_set(envset)
+    env.stop()
