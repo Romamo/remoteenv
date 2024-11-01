@@ -39,7 +39,7 @@ class ZooEnv:
         for t in dump_node(f"/{self._prefix}"):
             yield t
 
-    def bulk_delete(self, exclude: list[str] = None):
+    def bulk_delete(self, exclude: List[str] = None):
         for k, v in self.dump():
             if k not in exclude:
                 print(f"delete {k}")
@@ -55,7 +55,7 @@ class ZooEnv:
         except kazoo.exceptions.NoNodeError:
             self._zk.create(path, value.encode(), makepath=True)
 
-    def bulk_set(self, pairs: list[tuple[str, str]], delete_others=True):
+    def bulk_set(self, pairs: List[Tuple[str, str]], delete_others=True):
         for k, v in pairs:
             # print(f"{k}={v}")
             self.set(k, v)
