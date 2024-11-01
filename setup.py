@@ -15,7 +15,7 @@ setup(
     description='Remote env for python',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/Romamo/remote-env',
+    url='https://github.com/Romamo/remoteenv',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
